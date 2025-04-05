@@ -15,7 +15,9 @@ const handleGenerateNewShortUrl = async (req, res) => {
         }
     );
 
-    return res.json({id: url})
+    return res.render("home", {
+        id: url
+    })
 }
 
 const handleGetToTheUrl = async (req, res) => {
@@ -35,7 +37,7 @@ const handleGetToTheUrl = async (req, res) => {
     );
 
     // add url with https:// in redirect() else TypeError: Cannot read properties of null
-    res.redirect(`https://${entry.redirectURL}`);
+    res.redirect(`${entry.redirectURL}`);
 }
 
 const handleGetUrlAttribute = async (req, res) => {
